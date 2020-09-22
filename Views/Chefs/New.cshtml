@@ -1,0 +1,50 @@
+@{
+ViewData["Title"] = "Chef - Add New";
+}
+
+
+@model Chef
+
+<div>
+    <div class="text-center">
+        <h3 class="">Add a Chef!</h3>
+    </div>
+    <div class="d-flex justify-content-left">
+        <a a asp-action="Index" asp-controller="Chefs">Back to Chefs List</a>
+    </div>
+    <hr>
+
+    <form asp-action="Create" asp-controller="Chefs" method="post">
+        <div class="row">
+            <div class="form-group col-sm ">
+                <label asp-for="First"></label>
+                <span asp-validation-for="First" class="salmon"></span>
+                <input asp-for="First" class="form-control mb-3">
+
+                <label asp-for="Last"></label>
+                <span asp-validation-for="Last" class="salmon"></span>
+                <input asp-for="Last" class="form-control mb-3">
+            </div>
+
+            <div class="form-group col-sm ">
+                <label asp-for="Birthdate"></label>
+                <span asp-validation-for="Birthdate" class="salmon"></span>
+                <input asp-for="Birthdate" class="form-control mb-3">
+
+                <button type="submit" class="btn btn-outline-warning mt-3">Add Chef</button>
+                @* <input type="submit" value="Add Dish"> *@
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@* Template: ASP.Net Core form with Validation
+<form asp-action="Create" asp-controller="Chefs" method="POST">
+    <div class="form-group">
+        <label asp-for=""></label>
+        <span asp-validation-for="" class="text-danger"></span>
+        <input asp-for="" class="form-control">
+    </div>
+
+</form> *@

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Chef - All Chefs";
+}
+
+@* @model List<Chef>   //Works when List<Chef> in Index()! *@
+@model ChefNDish       //Also Works! 
+
+<div>
+    <div class="text-center">
+        <h3 class="">Chefs | 
+        <a asp-controller="Dishes" asp-action="All"> Dishes</a></h3>
+    </div>
+    <div class="d-flex justify-content-between ">
+        <p class="">Check out our roster of Chefs!</p>
+        <div>
+            <a asp-action="New" asp-controller="Chefs" >Add a Chef</a>
+            @* <a asp-action="New" asp-controller="Dishes" >Add a Dish</a> *@
+            @* <a href="/Chefs/New">Add a Chef</a> *@
+        </div>
+    </div>
+    <hr>
+
+<table class="table table-striped table-dark">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Bdate</th>
+        <th scope="col">Age</th>
+        <th scope="col"># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+    @* @foreach (Chef c in Model) *@
+    @foreach (Chef c in Model.ListOfChefs)
+    {
+        @* int age = DateTime.Now.Year - c.Birthdate.Year;  
+        if (DateTime.Now.DayOfYear < c.Birthdate.DayOfYear)  
+            {age = age - 1;}   *@
+    
+        <tr>
+        <th scope="row">@c.ChefId</th>
+        <td>@c.First @c.Last</td>
+        <td>@c.Birthdate.ToShortDateString()</td>
+        @* <td>@c.Birthdate.ToLongDateString()</td> *@
+        @* <td>@(DateTime.Now.Year-c.Birthdate.Year)</td>   *@
+        @* <td>@age</td> *@  @* if using above razor age calc code *@
+        <td>@c.Age()</td>
+        <td>@c.createdDishes.Count</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+</div>
+
+
+@* 
+    @foreach (Chef c in Model)
+    {
+        <p><a asp-route-id="@d.DishId" asp-action="Details" asp-controller="Dish">@d.Name</a><br> 
+            <small>by @d.Chef</small><br>
+            <small>created at @d.CreatedAt</small><br> 
+            <small>updated at @d.UpdatedAt</small> 
+        </p>
+    } 
+*@

@@ -1,0 +1,23 @@
+
+
+/* Debug
+-------------------------------------------------- */
+.red{
+    outline: 2px dotted red;
+  }
+  
+  .blue{
+    outline: 2px dotted cornflowerblue;
+  }
+  
+  .pink{
+    outline: 2px dotted pink;
+  }
+  
+  
+  
+  
+  .salmon {
+    color: salmon;
+    font-weight: bold;
+  } 
